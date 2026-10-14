@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meri Shushyan — UX / Product Designer</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+
+<div id="intro" aria-hidden="true">
+  <div class="loader" id="loader"></div>
+  <p class="loader-label">loading portfolio…</p>
+</div>
+
+
+<nav class="nav" data-nav>
+  <a href="#top" class="nav__logo">MERI SHUSHYAN</a>
+  <ul class="nav__links">
+    <li><a href="#top" class="is-active">Home</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:merishushyan@gmail.com" class="nav__status">
+    <span class="nav__status-dot"></span>Available for work
+  </a>
+  <button class="nav__hamburger" data-nav-toggle aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<nav class="nav__mobile" data-nav-mobile>
+  <a href="#top">Home</a>
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="mailto:merishushyan@gmail.com" class="nav__status">
+    <span class="nav__status-dot"></span>Available for work
+  </a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<span id="top"></span>
+<section class="hero hero--center hero--cutout hero--vc" id="heroCut">
+  <div class="hx__marquees" aria-hidden="true">
+    <div class="hx__row hx__row--fill" data-dir="-1"><div class="hx__track"></div></div>
+    <div class="hx__row hx__row--line" data-dir="1"><div class="hx__track"></div></div>
+  </div>
+  <h1 class="hx__sr">Meri Shushyan — UX / Product Designer</h1>
+  <div class="hx__fade"></div>
+  <div class="hx__meta">
+    <div class="hx__photo"><img src="assets/profile/meri-redbg.jpg" alt="Meri Shushyan"></div>
+    <div class="hx__text">
+      <p class="hc__eyebrow">UX / Product Designer — based in Nuremberg</p>
+      <p class="hc__tagline" data-blur-words>Research-led UX &amp; product design: interviews, usability testing and the data behind every screen.</p>
+    </div>
+  </div>
+  <a class="hc__scroll" href="#work" aria-label="Scroll down"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="sec sec--work work" id="work">
+  <header class="sec__head"><span class="sec__num">01</span><h2 class="sec__title">Work</h2><span class="sec__sub">Selected projects — click one for the case study</span></header>
+  <div class="work-stage" id="workStage">
+    <div class="preview" id="preview">
+      <div class="preview__track" id="previewTrack"></div>
+    </div>
+
+    <div class="list" id="list">
+      <div class="row" data-preview="assets/work/hover/ambulance.jpg">
+        <a href="case-ambulance.html">
+          <span class="row__title-wrap">
+            <span class="row__title">Emergency Response App</span>
+            <span class="row__title-ghost" aria-hidden="true">Emergency Response App</span>
+          </span>
+          <span class="row__meta">Locator CJSC / MoH Armenia — 2025</span>
+        </a>
+      </div>
+      <div class="row" data-preview="assets/work/hover/thesis.jpg">
+        <a href="case-ai-thesis.html">
+          <span class="row__title-wrap">
+            <span class="row__title">AI vs. Human Prototyping</span>
+            <span class="row__title-ghost" aria-hidden="true">AI vs. Human Prototyping</span>
+          </span>
+          <span class="row__meta">Master's Thesis, TH Nürnberg — 2025</span>
+        </a>
+      </div>
+      <div class="row" data-preview="assets/work/hover/b2b.jpg">
+        <a href="case-b2b-landing.html">
+          <span class="row__title-wrap">
+            <span class="row__title">B2B Campaign Landing Pages</span>
+            <span class="row__title-ghost" aria-hidden="true">B2B Campaign Landing Pages</span>
+          </span>
+          <span class="row__meta">Visable Labs, DACH / France — 2023–24</span>
+        </a>
+      </div>
+      <div class="row" data-preview="assets/work/hover/travel.jpg">
+        <a href="case-rehat-travel.html">
+          <span class="row__title-wrap">
+            <span class="row__title">REHat Travel Redesign</span>
+            <span class="row__title-ghost" aria-hidden="true">REHat Travel Redesign</span>
+          </span>
+          <span class="row__meta">Design Challenge — 2021</span>
+        </a>
+      </div>
+      <div class="row" data-preview="assets/work/hover/movie.jpg">
+        <a href="case-cinematic.html">
+          <span class="row__title-wrap">
+            <span class="row__title">Cinematic Movie App</span>
+            <span class="row__title-ghost" aria-hidden="true">Cinematic Movie App</span>
+          </span>
+          <span class="row__meta">Personal Project — 2020</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= ABOUT (bio + experience + skills + impact) ================= -->
+<div id="about"></div>
+<section class="sec sec--about" id="aboutSec">
+  <header class="sec__head"><span class="sec__num">02</span><h2 class="sec__title">About</h2><span class="sec__sub">Bio · Experience · Skills · Impact</span></header>
+  <div class="about-grid">
+    <div class="about-bio" id="aboutBio">
+      <h2 class="about-copy" id="aboutCopy" data-words='[{"t": "I", "type": null}, {"t": "design", "type": null}, {"t": "from", "type": null}, {"t": "evidence.", "type": "fill"}, {"t": "I", "type": null}, {"t": "run", "type": null}, {"t": "the", "type": null}, {"t": "research", "type": "fill"}, {"t": "—", "type": null}, {"t": "interviews,", "type": null}, {"t": "usability", "type": null}, {"t": "tests,", "type": null}, {"t": "surveys", "type": null}, {"t": "—", "type": null}, {"t": "and", "type": null}, {"t": "turn", "type": null}, {"t": "the", "type": null}, {"t": "data", "type": null}, {"t": "into", "type": null}, {"t": "interfaces", "type": null}, {"t": "people", "type": null}, {"t": "trust:", "type": "fill"}, {"t": "from", "type": null}, {"t": "an", "type": null}, {"t": "ambulance", "type": null}, {"t": "app", "type": null}, {"t": "shaped", "type": null}, {"t": "by", "type": null}, {"t": "crew", "type": null}, {"t": "interviews,", "type": null}, {"t": "now", "type": null}, {"t": "running", "type": null}, {"t": "nationwide", "type": "fill"}, {"t": "in", "type": null}, {"t": "Armenia,", "type": null}, {"t": "to", "type": null}, {"t": "B2B", "type": null}, {"t": "campaigns", "type": null}, {"t": "tested", "type": null}, {"t": "across", "type": null}, {"t": "ten", "type": null}, {"t": "European", "type": null}, {"t": "markets.", "type": null}]'></h2>
+      <div class="about-meta">
+    <div class="about-meta__item"><b>Education</b>MA International Marketing, TH Nürnberg<br>MSc, University of Jena</div>
+    <div class="about-meta__item"><b>Based in</b>Nuremberg, Germany</div>
+    <div class="about-meta__item"><b>Languages</b>Armenian, Russian, English, German</div>
+  </div>
+    </div>
+    <div class="about-exp" id="experience">
+      <p class="mini-eyebrow">Experience</p>
+      <div class="scrubber">
+    <div class="rail" id="rail" tabindex="0"></div>
+    <div class="preview-panel" id="panel">
+      <span class="preview-dot" id="pDot"></span>
+      <div class="preview-card" id="previewCard">
+        <span class="preview-card__date" id="pDate"></span>
+        <div class="preview-card__title" id="pTitle"></div>
+        <div class="preview-card__org" id="pOrg"></div>
+        <p class="preview-card__desc" id="pDesc"></p>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+  <div class="about-skills skills" id="skills">
+    <p class="mini-eyebrow">Skills, tools &amp; impact</p>
+    <div class="sh" id="skillHover"><ul class="sh__list"><li class="sh__row is-active" data-i="0" tabindex="0"><span class="sh__n">01</span><span class="sh__label">Skills</span><span class="sh__count">6</span></li><li class="sh__row" data-i="1" tabindex="0"><span class="sh__n">02</span><span class="sh__label">Tools</span><span class="sh__count">8</span></li><li class="sh__row" data-i="2" tabindex="0"><span class="sh__n">03</span><span class="sh__label">Industries</span><span class="sh__count">4</span></li></ul><div class="sh__panel"><ul class="sh__items is-active" data-i="0"><li style="--d:0ms">User research</li><li style="--d:55ms">Usability testing</li><li style="--d:110ms">Survey &amp; data analysis</li><li style="--d:165ms">A/B testing</li><li style="--d:220ms">Prototyping</li><li style="--d:275ms">Design systems</li></ul><ul class="sh__items" data-i="1"><li style="--d:0ms">Lookback</li><li style="--d:55ms">Figma</li><li style="--d:110ms">Hotjar</li><li style="--d:165ms">Miro</li><li style="--d:220ms">HubSpot</li><li style="--d:275ms">Webflow</li><li style="--d:330ms">Jira</li><li style="--d:385ms">AI tools</li></ul><ul class="sh__items" data-i="2"><li style="--d:0ms">Govtech</li><li style="--d:55ms">B2B SaaS</li><li style="--d:110ms">Travel</li><li style="--d:165ms">Media</li></ul></div></div>
+    <div class="impact" id="impact">
+    <div class="stat" data-value="10+"><span class="stat__num" data-num="10+"></span><span class="stat__label">EU markets reached through shipped campaigns</span></div>
+    <div class="stat" data-value="20+"><span class="stat__num" data-num="20+"></span><span class="stat__label">Landing pages designed, launched and A/B tested</span></div>
+    <div class="stat" data-value="8+"><span class="stat__num" data-num="8+"></span><span class="stat__label">Research sessions with paramedics and dispatchers</span></div>
+    <div class="stat" data-value="15"><span class="stat__num" data-num="15"></span><span class="stat__label">Participants in my thesis usability study</span></div>
+    <div class="stat" data-value="1"><span class="stat__num" data-num="1"></span><span class="stat__label">Nationally deployed government app</span></div>
+  </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec sec--contact" id="contact">
+  <header class="sec__head"><span class="sec__num">03</span><h2 class="sec__title">Contact</h2><span class="sec__sub">Open to new roles and freelance work</span></header>
+  <div class="contact-body contact-hero">
+  
+  <h1>Got a project, a role, or just want to talk design? Write to <a href="mailto:merishushyan@gmail.com">merishushyan@gmail.com</a></h1>
+
+  <p class="contact-status"><span class="nav__status-dot"></span>Currently open to new roles and freelance work — based in Nuremberg, open to remote</p>
+
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:merishushyan@gmail.com">
+      <small>Email</small>
+      <span>merishushyan@gmail.com</span>
+    </a>
+    <a class="contact-link" href="https://linkedin.com/in/merishushyan" target="_blank" rel="noopener">
+      <small>LinkedIn</small>
+      <span>linkedin.com/in/merishushyan</span>
+    </a>
+    <a class="contact-link" href="https://behance.net/maryshushyan" target="_blank" rel="noopener">
+      <small>Behance</small>
+      <span>behance.net/maryshushyan</span>
+    </a>
+  </div>
+</div>
+</section>
+
+<footer class="site-footer">
+  <span>© 2026 Meri Shushyan</span>
+  <ul class="footer-links">
+    <li><a href="mailto:merishushyan@gmail.com">Email</a></li>
+    <li><a href="https://linkedin.com/in/merishushyan" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://behance.net/maryshushyan" target="_blank" rel="noopener">Behance</a></li>
+  </ul>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
