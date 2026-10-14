@@ -5,6 +5,7 @@ UX / Product Designer, Nuremberg. Vanilla HTML/CSS/JS, hosted on GitHub Pages. N
 ## Pages
 - `index.html` — one scrolling page: loader intro, hero, Work (5-project hover list), About (bio, experience scrubber, skills hover list, impact stats), Contact, footer.
 - `case-ambulance.html`, `case-ai-thesis.html`, `case-b2b-landing.html`, `case-rehat-travel.html`, `case-cinematic.html` — one case page per project.
+- The thesis page's "04 prototypes" section is static screens (`assets/cases/thesis-sp-*.webp`).
 - `styles.css`, `main.js` (site), `anim.js` (case-page animations).
 
 ## Hard rules
@@ -21,6 +22,5 @@ UX / Product Designer, Nuremberg. Vanilla HTML/CSS/JS, hosted on GitHub Pages. N
 
 ## Open items
 - CV rewrite is waiting for real numbers (Visable conversion/time saved, thesis headline result, survey percentages). Deliver as .docx.
-- Prototype screen recordings for REHat, B2B, Cinematic, thesis (smoother than the Figma embed).
-- Thesis page embeds the live Figma prototype; the Figma file must be "anyone with the link can view".
+- Prototype screen recordings for REHat, B2B, Cinematic, thesis.
 - Her German is A2, English fluent; site copy is English.

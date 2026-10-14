@@ -14,67 +14,6 @@
     });
   }
 
-  /* ===================== HERO RING (Home) ===================== */
-  var ring = document.getElementById('ring');
-  var stage = document.getElementById('stage');
-  if(ring && stage){
-    var ringImages = Array.prototype.slice.call(ring.querySelectorAll('img')).map(function(img){ return img.getAttribute('src'); });
-    ring.innerHTML = '';
-
-    var order = [0,1,2,3,4,0,1,2];
-    var count = order.length;
-    var CARD_W = 260, CARD_H = 176;
-    var SPACING_FACTOR = 1 + 3 * 0.16;
-    var radius = (CARD_W * SPACING_FACTOR) / (2 * Math.tan(Math.PI / count));
-
-    document.documentElement.style.setProperty('--card-w', CARD_W + 'px');
-    document.documentElement.style.setProperty('--card-h', CARD_H + 'px');
-
-    var angle = 360 / count;
-    order.forEach(function(imgIdx, i){
-      var card = document.createElement('div');
-      card.className = 'ring__card';
-      card.style.transform = 'rotateY(' + (i * angle) + 'deg) translateZ(' + radius + 'px)';
-      var img = document.createElement('img');
-      img.src = ringImages[imgIdx];
-      img.alt = '';
-      card.appendChild(img);
-      ring.appendChild(card);
-    });
-
-    var rotY = 0, vel = 0, last = 0, degPerSec = 16;
-    var drag = { active:false, x:0 };
-
-    var RING_DY = 120, PERSP = 2200;
-    var rs = document.documentElement.style;
-    rs.setProperty('--portrait-z', (-radius) + 'px');
-    rs.setProperty('--portrait-scale', ((PERSP + radius) / PERSP).toFixed(4));
-    function apply(){ ring.style.transform = 'translateY(' + RING_DY + 'px) translateZ(' + (-radius) + 'px) rotateY(' + rotY + 'deg)'; }
-    apply();
-
-    function tick(now){
-      var dt = last ? (now - last) / 1000 : 0;
-      last = now;
-      var f = Math.min(dt, 0.1);
-      if(!drag.active){
-        if(Math.abs(vel) > 0.01){ rotY += vel * f; vel *= 0.94; }
-        else{ rotY += degPerSec * f; }
-      }
-      apply();
-      requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-
-    function down(x){ drag.active = true; drag.x = x; vel = 0; stage.classList.add('is-dragging'); }
-    function move(x){ if(!drag.active) return; var dx = x - drag.x; drag.x = x; var k = 0.35; rotY += dx * k; vel = dx * k * 60; }
-    function up(){ drag.active = false; stage.classList.remove('is-dragging'); }
-
-    stage.addEventListener('pointerdown', function(e){ down(e.clientX); stage.setPointerCapture(e.pointerId); });
-    stage.addEventListener('pointermove', function(e){ move(e.clientX); });
-    stage.addEventListener('pointerup', up);
-    stage.addEventListener('pointercancel', up);
-  }
-
   /* ===================== WORK — HOVER IMAGE REVEAL ===================== */
   var workStage = document.getElementById('workStage');
   if(workStage){

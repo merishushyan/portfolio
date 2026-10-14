@@ -208,36 +208,7 @@ section{ position:relative; width:100%; }
   align-items:center;
   justify-content:center;
 }
-.stage{
-  position:relative;
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  perspective:2200px;
-  cursor:grab;
-  touch-action:none;
-}
-.stage.is-dragging{ cursor:grabbing; }
 .tilt{ position:relative; transform-style:preserve-3d; transform:rotateX(-10deg); }
-.ring{
-  position:relative;
-  width:var(--card-w);
-  height:var(--card-h);
-  transform-style:preserve-3d;
-  will-change:transform;
-}
-.ring__card{
-  position:absolute; inset:0;
-  border-radius:14px;
-  overflow:hidden;
-  backface-visibility:hidden;
-  box-shadow:0 24px 60px -20px rgba(0,0,0,0.6);
-  background:#151412;
-}
-.ring__card img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(0.86) brightness(0.9); }
-.ring__card::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.55) 100%); }
 
 .portrait{
   position:absolute;
