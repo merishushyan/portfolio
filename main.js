@@ -122,13 +122,16 @@
 
     workStage.addEventListener('mousemove', function(e){
       var rect = workStage.getBoundingClientRect();
-      raw.x = e.clientX - rect.left + OFFSET_X;
-      raw.y = e.clientY - rect.top + OFFSET_Y;
+      raw.x = Math.min(e.clientX - rect.left + OFFSET_X, rect.width - preview.offsetWidth);
+      if(hovered === null) raw.y = e.clientY - rect.top + OFFSET_Y;
     });
 
     rows.forEach(function(row, idx){
       row.addEventListener('mouseenter', function(){
         hovered = idx;
+        // keep the hovered row readable: screenshot sits just below it (above it for the last two rows)
+        var sr = workStage.getBoundingClientRect(), rr = row.getBoundingClientRect();
+        raw.y = (idx >= rows.length - 2) ? (rr.top - sr.top - preview.offsetHeight - 14) : (rr.bottom - sr.top + 14);
         preview.classList.add('is-active');
         updateFrames();
         rows.forEach(function(r){
@@ -408,22 +411,10 @@
 (function(){
   var data = [
     {
-      date: "2018 — 2020",
-      title: "MSc, Economics",
-      org: "University of Jena",
-      desc: "Foundational studies before moving into product and design — where the analytical, evidence-first approach that still shapes how I work started."
-    },
-    {
-      date: "2021",
-      title: "Associate Product Owner",
-      org: "Draper Walled Garden",
-      desc: "First hands-on product role — working directly with prioritization, requirements, and cross-functional teams before shifting fully into design."
-    },
-    {
-      date: "2021 — 2022",
+      date: "2023 — 2025",
       title: "UI/UX Designer",
-      org: "Locator CJSC · Yerevan",
-      desc: "Ran 8+ research sessions and a survey with paramedics and dispatchers, then designed the full 25+ screen ambulance app — now used by Armenia's national ambulance service."
+      org: "Visable Labs · Berlin",
+      desc: "Led UX and UI for B2B SaaS platforms across 10+ EU markets, including DACH, inside Agile sprints. Designed conversion-focused landing pages and campaign assets for Google Ads, Meta, lead generation and email, built them live in HubSpot and kept improving them with A/B test results. Brought Figma into the workflow, maintained the component libraries and cut design-to-deployment time."
     },
     {
       date: "2022 — 2025",
@@ -432,10 +423,22 @@
       desc: "Comparative usability study (N=15, 3 prototype conditions): AI-generated vs. human-made, measured with task metrics, UEQ+ and moderated tests in Lookback."
     },
     {
-      date: "2023 — 2025",
-      title: "UI/UX Designer (Working Student)",
-      org: "Visable Labs · Berlin",
-      desc: "Designed 20+ B2B landing pages for 10+ EU markets in 4 languages — then read the A/B test data after launch and iterated."
+      date: "2021 — 2022",
+      title: "UI/UX Designer",
+      org: "Locator CJSC · Yerevan",
+      desc: "Designed end to end a government-supported, real-time monitoring app for ambulance crews across iOS, Android and web, now used by Armenia's national ambulance service. Ran research sessions with 8+ paramedics, dispatchers and medical staff, and delivered everything from user flows and wireframes to high-fidelity prototypes."
+    },
+    {
+      date: "2021",
+      title: "Associate Product Owner",
+      org: "Draper Walled Garden · Yerevan",
+      desc: "Shaped the content structure and information architecture of a swipe-based investment app for angel investors, and supported early user and market research and product positioning."
+    },
+    {
+      date: "2018 — 2020",
+      title: "MSc, Economics",
+      org: "University of Jena",
+      desc: "Foundational studies before moving into product and design — where the analytical, evidence-first approach that still shapes how I work started."
     }
   ];
 
@@ -575,4 +578,87 @@
   rows.forEach(function(r){ r.addEventListener('mouseenter', function(){ act(r.dataset.i); }); r.addEventListener('focus', function(){ act(r.dataset.i); }); r.addEventListener('click', function(){ act(r.dataset.i); }); });
 })();
 
+})();
+
+
+/* ===================== HOVER SOUND (soft wood tap on Work rows and Skills rows) ===================== */
+(function(){
+  var btn = document.getElementById('soundBtn');
+  var targets = document.querySelectorAll('#list .row, .sh__row');
+  if(!btn || !targets.length) return;
+  var txt = btn.querySelector('.snd__txt');
+  var ctx = null, master = null, on = false, last = 0;
+  try{ on = localStorage.getItem('portfolio-sound') === '1'; }catch(e){}
+  function ensure(){
+    if(!ctx){
+      var AC = window.AudioContext || window.webkitAudioContext; if(!AC) return false;
+      ctx = new AC();
+      master = ctx.createGain(); master.gain.value = 1;
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2600; lp.Q.value = 0.3;
+      master.connect(lp); lp.connect(ctx.destination);
+    }
+    if(ctx.state === 'suspended') ctx.resume();
+    return true;
+  }
+  function render(){ btn.setAttribute('aria-pressed', on ? 'true' : 'false'); txt.textContent = on ? 'Sound on' : 'Sound off'; }
+  function play(idx){
+    var t = ctx.currentTime, k = idx % 6;
+    var len = Math.floor(ctx.sampleRate * 0.05), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+    for(var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+    var n = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
+    n.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 520 + k * 25; bp.Q.value = 2.2;
+    g.gain.value = 1.6; n.connect(bp); bp.connect(g); g.connect(master); n.start(t);
+    var o = ctx.createOscillator(), og = ctx.createGain();
+    o.type = 'sine'; o.frequency.setValueAtTime(190 + k * 8, t); o.frequency.exponentialRampToValueAtTime(150, t + 0.084);
+    og.gain.setValueAtTime(0.0001, t); og.gain.linearRampToValueAtTime(0.12, t + 0.004); og.gain.exponentialRampToValueAtTime(0.0001, t + 0.084);
+    o.connect(og); og.connect(master); o.start(t); o.stop(t + 0.14);
+  }
+  function tick(idx){
+    if(!on || !ensure()) return;
+    var now = ctx.currentTime; if(now - last < 0.09) return; last = now;
+    play(idx);
+  }
+  btn.addEventListener('click', function(){
+    on = !on;
+    try{ localStorage.setItem('portfolio-sound', on ? '1' : '0'); }catch(e){}
+    render();
+    if(on){ ensure(); tick(0); }
+  });
+  document.addEventListener('pointerdown', function(){ if(on) ensure(); }, { passive:true });
+  targets.forEach(function(r, i){ r.addEventListener('mouseenter', function(){ tick(i); }); });
+  render();
+})();
+
+/* ===================== circle cursor ===================== */
+(function(){
+  if(!window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  var el = document.createElement('div'); el.className = 'cur'; el.innerHTML = '<span class="cur__t">View</span>';
+  document.body.appendChild(el);
+  var root = document.documentElement, x = -100, y = -100, cx = x, cy = y, seen = false;
+  root.classList.add('has-cur');
+  window.addEventListener('mousemove', function(e){
+    x = e.clientX; y = e.clientY;
+    if(!seen){ seen = true; cx = x; cy = y; el.classList.add('is-on'); }
+  }, {passive:true});
+  document.addEventListener('mouseleave', function(){ el.classList.remove('is-on'); seen = false; });
+  var pending = false;
+  function sense(){
+    pending = false; if(!seen) return;
+    var t = document.elementFromPoint(x, y); if(!t) return;
+    var row = t.closest('#list .row');
+    var link = !row && t.closest('a, button, .sh__row, .hc__photo, [role="button"]');
+    el.classList.toggle('is-view', !!row);
+    el.classList.toggle('is-link', !!link);
+  }
+  function queue(){ if(!pending){ pending = true; requestAnimationFrame(sense); } }
+  window.addEventListener('mousemove', queue, {passive:true});
+  window.addEventListener('scroll', queue, {passive:true});
+  document.addEventListener('mousedown', function(){ el.style.scale = '.85'; });
+  document.addEventListener('mouseup', function(){ el.style.scale = ''; });
+  el.style.transition += ', scale .2s ease';
+  (function loop(){
+    cx += (x - cx) * 0.22; cy += (y - cy) * 0.22;
+    el.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+    requestAnimationFrame(loop);
+  })();
 })();

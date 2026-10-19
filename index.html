@@ -50,8 +50,9 @@
   <div class="hx__meta">
     <div class="hx__photo"><img src="assets/profile/meri-redbg.jpg" alt="Meri Shushyan"></div>
     <div class="hx__text">
-      <p class="hc__eyebrow">UX / Product Designer — based in Nuremberg</p>
-      <p class="hc__tagline" data-blur-words>Research-led UX &amp; product design: interviews, usability testing and the data behind every screen.</p>
+      <p class="hc__hey">Hey, I'm <em>Meri.</em></p>
+      <p class="hc__eyebrow">UX / Product Designer · Nuremberg, Germany</p>
+      <p class="hc__tagline">Research-led UX &amp; product design: interviews, usability testing and the data behind every screen.</p>
     </div>
   </div>
   <a class="hc__scroll" href="#work" aria-label="Scroll down"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -59,7 +60,7 @@
 
 <!-- ================= WORK ================= -->
 <section class="sec sec--work work" id="work">
-  <header class="sec__head"><span class="sec__num">01</span><h2 class="sec__title">Work</h2><span class="sec__sub">Selected projects — click one for the case study</span></header>
+  <header class="sec__head"><span class="sec__num">01</span><h2 class="sec__title">Work</h2><span class="sec__sub">Selected projects — click one for the case study</span><button class="snd" id="soundBtn" type="button" aria-pressed="false"><span class="snd__dot"></span><span class="snd__txt">Sound off</span></button></header>
   <div class="work-stage" id="workStage">
     <div class="preview" id="preview">
       <div class="preview__track" id="previewTrack"></div>
@@ -67,48 +68,65 @@
 
     <div class="list" id="list">
       <div class="row" data-preview="assets/work/hover/ambulance.jpg">
-        <a href="case-ambulance.html">
-          <span class="row__title-wrap">
-            <span class="row__title">Emergency Response App</span>
-            <span class="row__title-ghost" aria-hidden="true">Emergency Response App</span>
+        <a href="case-ambulance.html"><span class="row__thumb"><img src="assets/work/hover/ambulance.jpg" alt=""></span>
+          <span class="row__main">
+            <span class="row__title-wrap">
+              <span class="row__title">Mobile App for Ambulance Crews in Armenia</span>
+              <span class="row__title-ghost" aria-hidden="true">Mobile App for Ambulance Crews in Armenia</span>
+            </span>
+            <span class="row__sub">Emergency Response Data System</span>
+            <span class="row__tags"><span class="row__tag">Crew interviews</span><span class="row__tag">Prototype testing</span><span class="row__tag">GovTech</span></span>
           </span>
-          <span class="row__meta">Locator CJSC / MoH Armenia — 2025</span>
+          <span class="row__side"><span class="row__meta">Locator CJSC, Armenia · 2022</span><span class="row__ev">8+ interviews with paramedics, dispatchers and medical staff; prototype validation</span><span class="row__now"><i></i>In use nationwide in Armenia today</span></span>
         </a>
       </div>
       <div class="row" data-preview="assets/work/hover/thesis.jpg">
-        <a href="case-ai-thesis.html">
-          <span class="row__title-wrap">
-            <span class="row__title">AI vs. Human Prototyping</span>
-            <span class="row__title-ghost" aria-hidden="true">AI vs. Human Prototyping</span>
+        <a href="case-ai-thesis.html"><span class="row__thumb"><img src="assets/work/hover/thesis.jpg" alt=""></span>
+          <span class="row__main">
+            <span class="row__title-wrap">
+              <span class="row__title">Rapid Prototyping. AI vs Human Approach.</span>
+              <span class="row__title-ghost" aria-hidden="true">Rapid Prototyping. AI vs Human Approach.</span>
+            </span>
+            <span class="row__sub">A Comparative Usability Study</span>
+            <span class="row__tags"><span class="row__tag">Survey</span><span class="row__tag">Usability testing</span><span class="row__tag">Master's thesis</span></span>
           </span>
-          <span class="row__meta">Master's Thesis, TH Nürnberg — 2025</span>
+          <span class="row__side"><span class="row__meta">Master's Thesis, TH Nürnberg · 2025</span><span class="row__ev">Usability study, N=15, three prototype conditions, TCT, TCR, UEQ+</span></span>
         </a>
       </div>
       <div class="row" data-preview="assets/work/hover/b2b.jpg">
-        <a href="case-b2b-landing.html">
-          <span class="row__title-wrap">
-            <span class="row__title">B2B Campaign Landing Pages</span>
-            <span class="row__title-ghost" aria-hidden="true">B2B Campaign Landing Pages</span>
+        <a href="case-b2b-landing.html"><span class="row__thumb"><img src="assets/work/hover/b2b.jpg" alt=""></span>
+          <span class="row__main">
+            <span class="row__title-wrap">
+              <span class="row__title">Multi-market B2B Landing Pages</span>
+              <span class="row__title-ghost" aria-hidden="true">Multi-market B2B Landing Pages</span>
+            </span>
+            <span class="row__tags"><span class="row__tag">A/B testing</span><span class="row__tag">10+ EU markets</span><span class="row__tag">HubSpot</span></span>
           </span>
-          <span class="row__meta">Visable Labs, DACH / France — 2023–24</span>
-        </a>
-      </div>
-      <div class="row" data-preview="assets/work/hover/travel.jpg">
-        <a href="case-rehat-travel.html">
-          <span class="row__title-wrap">
-            <span class="row__title">REHat Travel Redesign</span>
-            <span class="row__title-ghost" aria-hidden="true">REHat Travel Redesign</span>
-          </span>
-          <span class="row__meta">Design Challenge — 2021</span>
+          <span class="row__side"><span class="row__meta">Visable Labs, DACH / France · 2023 to 2024</span><span class="row__ev">A/B tests, post-launch performance data</span></span>
         </a>
       </div>
       <div class="row" data-preview="assets/work/hover/movie.jpg">
-        <a href="case-cinematic.html">
-          <span class="row__title-wrap">
-            <span class="row__title">Cinematic Movie App</span>
-            <span class="row__title-ghost" aria-hidden="true">Cinematic Movie App</span>
+        <a href="case-cinematic.html"><span class="row__thumb"><img src="assets/work/hover/movie.jpg" alt=""></span>
+          <span class="row__main">
+            <span class="row__title-wrap">
+              <span class="row__title">Cinematic Movie App</span>
+              <span class="row__title-ghost" aria-hidden="true">Cinematic Movie App</span>
+            </span>
+            <span class="row__tags"><span class="row__tag">Mobile app</span><span class="row__tag">Case study</span></span>
           </span>
-          <span class="row__meta">Personal Project — 2020</span>
+          <span class="row__side"><span class="row__meta">Personal Project · 2020</span></span>
+        </a>
+      </div>
+      <div class="row" data-preview="assets/work/hover/travel.jpg">
+        <a href="case-rehat-travel.html"><span class="row__thumb"><img src="assets/work/hover/travel.jpg" alt=""></span>
+          <span class="row__main">
+            <span class="row__title-wrap">
+              <span class="row__title">REHat Travel Redesign</span>
+              <span class="row__title-ghost" aria-hidden="true">REHat Travel Redesign</span>
+            </span>
+            <span class="row__tags"><span class="row__tag">Web redesign</span><span class="row__tag">Case study</span></span>
+          </span>
+          <span class="row__side"><span class="row__meta">Design Challenge · 2021</span></span>
         </a>
       </div>
     </div>
@@ -119,12 +137,12 @@
 <!-- ================= ABOUT (bio + experience + skills + impact) ================= -->
 <div id="about"></div>
 <section class="sec sec--about" id="aboutSec">
-  <header class="sec__head"><span class="sec__num">02</span><h2 class="sec__title">About</h2><span class="sec__sub">Bio · Experience · Skills · Impact</span></header>
+  <header class="sec__head"><span class="sec__num">02</span><h2 class="sec__title">About</h2><span class="sec__sub">Bio · Experience · Toolkit</span></header>
   <div class="about-grid">
     <div class="about-bio" id="aboutBio">
       <h2 class="about-copy" id="aboutCopy" data-words='[{"t": "I", "type": null}, {"t": "design", "type": null}, {"t": "from", "type": null}, {"t": "evidence.", "type": "fill"}, {"t": "I", "type": null}, {"t": "run", "type": null}, {"t": "the", "type": null}, {"t": "research", "type": "fill"}, {"t": "—", "type": null}, {"t": "interviews,", "type": null}, {"t": "usability", "type": null}, {"t": "tests,", "type": null}, {"t": "surveys", "type": null}, {"t": "—", "type": null}, {"t": "and", "type": null}, {"t": "turn", "type": null}, {"t": "the", "type": null}, {"t": "data", "type": null}, {"t": "into", "type": null}, {"t": "interfaces", "type": null}, {"t": "people", "type": null}, {"t": "trust:", "type": "fill"}, {"t": "from", "type": null}, {"t": "an", "type": null}, {"t": "ambulance", "type": null}, {"t": "app", "type": null}, {"t": "shaped", "type": null}, {"t": "by", "type": null}, {"t": "crew", "type": null}, {"t": "interviews,", "type": null}, {"t": "now", "type": null}, {"t": "running", "type": null}, {"t": "nationwide", "type": "fill"}, {"t": "in", "type": null}, {"t": "Armenia,", "type": null}, {"t": "to", "type": null}, {"t": "B2B", "type": null}, {"t": "campaigns", "type": null}, {"t": "tested", "type": null}, {"t": "across", "type": null}, {"t": "ten", "type": null}, {"t": "European", "type": null}, {"t": "markets.", "type": null}]'></h2>
       <div class="about-meta">
-    <div class="about-meta__item"><b>Education</b>MA International Marketing, TH Nürnberg<br>MSc, University of Jena</div>
+    <div class="about-meta__item"><b>Education</b>MA International Marketing, TH Nürnberg</div>
     <div class="about-meta__item"><b>Based in</b>Nuremberg, Germany</div>
     <div class="about-meta__item"><b>Languages</b>Armenian, Russian, English, German</div>
   </div>
@@ -146,15 +164,13 @@
     </div>
   </div>
   <div class="about-skills skills" id="skills">
-    <p class="mini-eyebrow">Skills, tools &amp; impact</p>
-    <div class="sh" id="skillHover"><ul class="sh__list"><li class="sh__row is-active" data-i="0" tabindex="0"><span class="sh__n">01</span><span class="sh__label">Skills</span><span class="sh__count">6</span></li><li class="sh__row" data-i="1" tabindex="0"><span class="sh__n">02</span><span class="sh__label">Tools</span><span class="sh__count">8</span></li><li class="sh__row" data-i="2" tabindex="0"><span class="sh__n">03</span><span class="sh__label">Industries</span><span class="sh__count">4</span></li></ul><div class="sh__panel"><ul class="sh__items is-active" data-i="0"><li style="--d:0ms">User research</li><li style="--d:55ms">Usability testing</li><li style="--d:110ms">Survey &amp; data analysis</li><li style="--d:165ms">A/B testing</li><li style="--d:220ms">Prototyping</li><li style="--d:275ms">Design systems</li></ul><ul class="sh__items" data-i="1"><li style="--d:0ms">Lookback</li><li style="--d:55ms">Figma</li><li style="--d:110ms">Hotjar</li><li style="--d:165ms">Miro</li><li style="--d:220ms">HubSpot</li><li style="--d:275ms">Webflow</li><li style="--d:330ms">Jira</li><li style="--d:385ms">AI tools</li></ul><ul class="sh__items" data-i="2"><li style="--d:0ms">Govtech</li><li style="--d:55ms">B2B SaaS</li><li style="--d:110ms">Travel</li><li style="--d:165ms">Media</li></ul></div></div>
-    <div class="impact" id="impact">
-    <div class="stat" data-value="10+"><span class="stat__num" data-num="10+"></span><span class="stat__label">EU markets reached through shipped campaigns</span></div>
-    <div class="stat" data-value="20+"><span class="stat__num" data-num="20+"></span><span class="stat__label">Landing pages designed, launched and A/B tested</span></div>
-    <div class="stat" data-value="8+"><span class="stat__num" data-num="8+"></span><span class="stat__label">Research sessions with paramedics and dispatchers</span></div>
-    <div class="stat" data-value="15"><span class="stat__num" data-num="15"></span><span class="stat__label">Participants in my thesis usability study</span></div>
-    <div class="stat" data-value="1"><span class="stat__num" data-num="1"></span><span class="stat__label">Nationally deployed government app</span></div>
+    <p class="mini-eyebrow" >Toolkit</p>
+    <div class="sh" id="skillHover"><ul class="sh__list"><li class="sh__row is-active" data-i="0" tabindex="0"><span class="sh__n">01</span><span class="sh__label">Methods</span><span class="sh__count">18</span></li><li class="sh__row" data-i="1" tabindex="0"><span class="sh__n">02</span><span class="sh__label">Tools</span><span class="sh__count">16</span></li><li class="sh__row" data-i="2" tabindex="0"><span class="sh__n">03</span><span class="sh__label">Fields</span><span class="sh__count">5</span></li></ul><div class="sh__panel"><ul class="sh__items is-active" data-i="0"><li style="--d:0ms">User research</li><li style="--d:45ms">Usability testing</li><li style="--d:90ms">Qualitative &amp; quantitative research</li><li style="--d:135ms">A/B testing</li><li style="--d:180ms">Wireframing</li><li style="--d:225ms">Rapid prototyping</li><li style="--d:270ms">User flows</li><li style="--d:315ms">Information architecture</li><li style="--d:360ms">Design systems</li><li style="--d:405ms">High-fidelity UI</li><li style="--d:450ms">Responsive design</li><li style="--d:495ms">Mobile UX (iOS &amp; Android)</li><li style="--d:540ms">AI evaluation &amp; testing</li><li style="--d:585ms">AI-assisted design</li><li style="--d:630ms">Vibe coding</li><li style="--d:675ms">Prompt engineering</li><li style="--d:720ms">Stakeholder facilitation</li><li style="--d:765ms">Agile / Scrum</li></ul><ul class="sh__items" data-i="1"><li style="--d:0ms">Figma</li><li style="--d:45ms">Sketch</li><li style="--d:90ms">Adobe Illustrator</li><li style="--d:135ms">Affinity Designer</li><li style="--d:180ms">Miro</li><li style="--d:225ms">Lookback</li><li style="--d:270ms">Hotjar</li><li style="--d:315ms">HubSpot</li><li style="--d:360ms">Webflow</li><li style="--d:405ms">Jira</li><li style="--d:450ms">Claude</li><li style="--d:495ms">Claude Code</li><li style="--d:540ms">Midjourney</li><li style="--d:585ms">Lovable</li><li style="--d:630ms">Perplexity</li><li style="--d:675ms">Python (data viz)</li></ul><ul class="sh__items" data-i="2"><li style="--d:0ms">GovTech</li><li style="--d:45ms">Fintech</li><li style="--d:90ms">B2B SaaS &amp; marketplaces</li><li style="--d:135ms">Marketing</li><li style="--d:180ms">Academic research</li></ul></div></div>
   </div>
+  <div class="story" id="chapters">
+    <div class="story__row"><span class="story__n">01</span><h3 class="story__t">Numbers <em>first</em></h3><div class="story__b"><p>I studied economics and business, where nothing counts unless you can back it up. That habit never left. I still ask for the evidence before I open Figma.</p><div class="story__tags"><span class="row__tag">Quantitative analysis</span><span class="row__tag">Performance metrics</span><span class="row__tag">A/B testing</span><span class="row__tag">Python</span></div></div></div>
+    <div class="story__row"><span class="story__n">02</span><h3 class="story__t">Then <em>people</em></h3><div class="story__b"><p>UX showed me the other half. Numbers tell you what happens, people tell you why. So I sit in on interviews, run usability tests and watch where things go wrong.</p><div class="story__tags"><span class="row__tag">User research</span><span class="row__tag">Usability testing</span><span class="row__tag">Interviews</span><span class="row__tag">Lookback</span></div></div></div>
+    <div class="story__row"><span class="story__n">03</span><h3 class="story__t">Now also <em>AI</em></h3><div class="story__b"><p>My thesis put AI-generated prototypes up against human-made ones, with 15 participants. I use AI across my workflow, from prototyping to vibe coding, but I test it before I trust it.</p><div class="story__tags"><span class="row__tag">AI evaluation</span><span class="row__tag">Prompt engineering</span><span class="row__tag">Vibe coding</span><span class="row__tag">UEQ+</span><span class="row__tag">AI-assisted workflows</span></div></div></div>
   </div>
 </section>
 
