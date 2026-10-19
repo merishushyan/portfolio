@@ -588,34 +588,37 @@
   if(!btn || !targets.length) return;
   var txt = btn.querySelector('.snd__txt');
   var ctx = null, master = null, on = false, last = 0;
-  try{ on = localStorage.getItem('portfolio-sound') === '1'; }catch(e){}
+  on = true;
+  try{ on = localStorage.getItem('portfolio-sound') !== '0'; }catch(e){}
   function ensure(){
     if(!ctx){
       var AC = window.AudioContext || window.webkitAudioContext; if(!AC) return false;
       ctx = new AC();
       master = ctx.createGain(); master.gain.value = 1;
-      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2600; lp.Q.value = 0.3;
-      master.connect(lp); lp.connect(ctx.destination);
+      var lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 700; lp.Q.value = 0.3;
+      var comp = ctx.createDynamicsCompressor(); comp.threshold.value = -8; comp.knee.value = 6; comp.ratio.value = 10; comp.attack.value = 0.001; comp.release.value = 0.08;
+      var outG = ctx.createGain(); outG.gain.value = 1;
+      master.connect(lp); lp.connect(comp); comp.connect(outG); outG.connect(ctx.destination);
     }
     if(ctx.state === 'suspended') ctx.resume();
     return true;
   }
   function render(){ btn.setAttribute('aria-pressed', on ? 'true' : 'false'); txt.textContent = on ? 'Sound on' : 'Sound off'; }
-  function play(idx){
-    var t = ctx.currentTime, k = idx % 6;
-    var len = Math.floor(ctx.sampleRate * 0.05), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
-    for(var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
-    var n = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), g = ctx.createGain();
-    n.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 520 + k * 25; bp.Q.value = 2.2;
-    g.gain.value = 1.6; n.connect(bp); bp.connect(g); g.connect(master); n.start(t);
-    var o = ctx.createOscillator(), og = ctx.createGain();
-    o.type = 'sine'; o.frequency.setValueAtTime(190 + k * 8, t); o.frequency.exponentialRampToValueAtTime(150, t + 0.084);
-    og.gain.setValueAtTime(0.0001, t); og.gain.linearRampToValueAtTime(0.12, t + 0.004); og.gain.exponentialRampToValueAtTime(0.0001, t + 0.084);
-    o.connect(og); og.connect(master); o.start(t); o.stop(t + 0.14);
+  function play(){
+    var t = ctx.currentTime;
+    /* soft deep "pum": a short muted thump (135 Hz falling to 68 Hz), fast fade, no ring, no echo, no highs */
+    function tone(f0, f1, peak, dur, drop){
+      var o = ctx.createOscillator(), og = ctx.createGain();
+      o.type = 'sine'; o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + drop);
+      og.gain.setValueAtTime(0.0001, t); og.gain.linearRampToValueAtTime(peak, t + 0.005); og.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(og); og.connect(master); o.start(t); o.stop(t + dur + 0.03);
+    }
+    tone(135, 68, 0.5, 0.17, 0.09);
+    tone(270, 136, 0.15, 0.1, 0.07);   /* quiet upper partial so laptop speakers carry the thump */
   }
   function tick(idx){
     if(!on || !ensure()) return;
-    var now = ctx.currentTime; if(now - last < 0.09) return; last = now;
+    var now = ctx.currentTime; if(now - last < 0.1) return; last = now;
     play(idx);
   }
   btn.addEventListener('click', function(){
@@ -624,7 +627,7 @@
     render();
     if(on){ ensure(); tick(0); }
   });
-  document.addEventListener('pointerdown', function(){ if(on) ensure(); }, { passive:true });
+  ['pointerdown','keydown','touchstart'].forEach(function(ev){ document.addEventListener(ev, function(){ if(on) ensure(); }, { passive:true }); });
   targets.forEach(function(r, i){ r.addEventListener('mouseenter', function(){ tick(i); }); });
   render();
 })();
@@ -653,12 +656,13 @@
   function queue(){ if(!pending){ pending = true; requestAnimationFrame(sense); } }
   window.addEventListener('mousemove', queue, {passive:true});
   window.addEventListener('scroll', queue, {passive:true});
-  document.addEventListener('mousedown', function(){ el.style.scale = '.85'; });
-  document.addEventListener('mouseup', function(){ el.style.scale = ''; });
-  el.style.transition += ', scale .2s ease';
+  var down = false, sc = 1;
+  document.addEventListener('mousedown', function(){ down = true; });
+  document.addEventListener('mouseup', function(){ down = false; });
   (function loop(){
     cx += (x - cx) * 0.22; cy += (y - cy) * 0.22;
-    el.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+    sc += ((down ? 0.85 : 1) - sc) * 0.3;
+    el.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0) scale(' + sc + ')';
     requestAnimationFrame(loop);
   })();
 })();
