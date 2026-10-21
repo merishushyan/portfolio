@@ -420,7 +420,7 @@
       date: "2022 — 2025",
       title: "MA, International Marketing",
       org: "TH Nürnberg",
-      desc: "Comparative usability study (N=15, 3 prototype conditions): AI-generated vs. human-made, measured with task metrics, UEQ+ and moderated tests in Lookback."
+      desc: "Comparative usability study (N=15, 3 prototype conditions): AI-generated vs. human-made, measured with task metrics, UEQ+ and moderated tests in Lookback. The human-made prototype won: 96.7% task completion against 56.7% for the AI-generated one."
     },
     {
       date: "2021 — 2022",
@@ -429,10 +429,10 @@
       desc: "Designed end to end a government-supported, real-time monitoring app for ambulance crews across iOS, Android and web, now used by Armenia's national ambulance service. Ran research sessions with 8+ paramedics, dispatchers and medical staff, and delivered everything from user flows and wireframes to high-fidelity prototypes."
     },
     {
-      date: "2021",
+      date: "2020 — 2021",
       title: "Associate Product Owner",
       org: "Draper Walled Garden · Yerevan",
-      desc: "Shaped the content structure and information architecture of a swipe-based investment app for angel investors, and supported early user and market research and product positioning."
+      desc: "Shaped the content structure and information architecture of a swipe-based fintech app for angel investors, and supported early user and market research and product positioning."
     },
     {
       date: "2018 — 2020",

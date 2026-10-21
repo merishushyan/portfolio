@@ -1099,3 +1099,18 @@ html.has-cur, html.has-cur *{ cursor:none !important; }
 .row.is-dim .row__sub{ color:#2E2D2B; }
 .row.is-hover .row__sub{ color:var(--ink); }
 .row__title-wrap{ padding-bottom:2px; }
+
+/* Spinning project ring (contact) */
+.ringwrap{ --s:.5; position:relative; height:calc(420px*var(--s)); margin-top:48px; display:flex; justify-content:center; align-items:center; perspective:1400px; overflow:hidden; }
+.ring3d{ position:relative; width:0; height:0; transform-style:preserve-3d; transform:scale(var(--s)) rotateX(-11deg); animation:ringspin 46s linear infinite; }
+.ringwrap:hover .ring3d{ animation-play-state:paused; }
+.ring3d a{ position:absolute; width:230px; height:105px; left:-115px; top:-52px; border-radius:8px; overflow:hidden; transform:rotateY(var(--a)) translateZ(330px); background:#111; box-shadow:0 0 0 1px rgba(255,255,255,.06), 0 24px 40px -20px rgba(0,0,0,.8); backface-visibility:visible; }
+.ring3d a img{ width:100%; height:100%; display:block; }
+.ring3d a:nth-child(n+4):nth-child(-n+6){ filter:brightness(.55); }
+@keyframes ringspin{ from{ transform:scale(var(--s)) rotateX(-11deg) rotateY(0deg); } to{ transform:scale(var(--s)) rotateX(-11deg) rotateY(-360deg); } }
+/* side placement: next to the headline */
+.contact-hero{ position:relative; }
+.ringwrap--side{ position:absolute; right:0; top:-6px; width:min(46%,520px); margin:0; --s:.52; }
+@media (max-width:1000px){ .ringwrap--side{ position:relative; width:auto; margin-top:36px; --s:.45; } }
+@media (max-width:520px){ .ringwrap{ --s:.4; margin-top:32px; } }
+@media (prefers-reduced-motion:reduce){ .ring3d{ animation:none; transform:scale(var(--s)) rotateX(-11deg) rotateY(-20deg); } }

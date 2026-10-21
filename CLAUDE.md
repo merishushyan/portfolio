@@ -24,7 +24,7 @@ UX / Product Designer, Nuremberg. Vanilla HTML/CSS/JS, hosted on GitHub Pages. N
 - Hero: "Hey, I'm Meri." (DM Serif Display, Meri in clay italic), static tagline, no animation on the tagline.
 - No impact stat tiles (she finds counters childish). Impact lives in the story text, method tags and the "In use nationwide in Armenia today" pill.
 - Copy: no em dashes in new copy, personal tone, not AI-sounding. Location written "Nuremberg, Germany".
-- Hover sound: soft wood tap (Web Audio, no files) on Work rows and Methods/Tools/Fields rows, behind a "Sound off/on" toggle in the Work header.
+- Hover sound: soft deep "pum" (short muted thump, 135 to 68 Hz, no tail; FINAL, approved by Meri, do not change pitch/length/volume without asking; Web Audio, no files) on Work rows and Methods/Tools/Fields rows, behind a "Sound off/on" toggle in the Work header.
 - Case pages: nav has a "← All projects" pill, and each page ends with a "Next project" row.
 
 ## Open items
@@ -40,3 +40,7 @@ UX / Product Designer, Nuremberg. Vanilla HTML/CSS/JS, hosted on GitHub Pages. N
 - Hovering a project row: its small thumbnail fades to ~6% opacity while the big cursor-following preview shows (no duplicate image).
 - Custom circle cursor (desktop with a mouse only, `(hover:hover) and (pointer:fine)`): 10px dot, 34px over links/buttons/hover rows, 58px orange circle with "View" over Work rows. State is re-checked on scroll via elementFromPoint. Native cursor hidden via `html.has-cur`. Code at the end of main.js; styles `.cur*` at the end of styles.css.
 - Sound is ON by default (stored choice in localStorage `portfolio-sound`, "0" = off); browsers only allow audio after the first click/key/touch on the page. Cursor click-scale is applied inside the transform in the rAF loop (never use the CSS `scale` property on `.cur`: it scales the translate and makes the dot jump).
+- Thesis result is shown on the home row and story row 03: human-made 96.7% task completion vs 56.7% for AI-generated (numbers come from the thesis case page; keep them identical everywhere).
+- Draper Walled Garden is a fintech app (timeline text says "fintech"), dated 2020 to 2021.
+- Contact has a CV link to `Meri_Shushyan_CV.pdf` in the repo root. Replace that file to update the CV.
+- Share previews: meta description + Open Graph/Twitter tags in every page head. Home uses `og-image.jpg` (1200x630, repo root); case pages use `assets/work/hover/<project>.jpg`. Absolute URLs point at https://merishushyan.github.io/portfolio/.
