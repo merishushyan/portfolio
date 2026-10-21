@@ -1114,3 +1114,10 @@ html.has-cur, html.has-cur *{ cursor:none !important; }
 @media (max-width:1000px){ .ringwrap--side{ position:relative; width:auto; margin-top:36px; --s:.45; } }
 @media (max-width:520px){ .ringwrap{ --s:.4; margin-top:32px; } }
 @media (prefers-reduced-motion:reduce){ .ring3d{ animation:none; transform:scale(var(--s)) rotateX(-11deg) rotateY(-20deg); } }
+
+/* Text under the name is fixed: no intro animation */
+.blur-seg{ opacity:1 !important; filter:none !important; transform:none !important; transition:none !important; }
+.hc__eyebrow,.hc__tagline{ opacity:1 !important; transform:none !important; filter:none !important; transition:none !important; }
+body.is-loading .hc__eyebrow, body.is-loading .hc__tagline{ opacity:1 !important; }
+/* Photo is visible immediately: no fade-in */
+.hx__photo, body.is-loading .hx__photo, body:not(.is-loading) .hx__photo, .hero .hx__photo{ opacity:1 !important; transition:transform .3s ease !important; }
