@@ -1136,3 +1136,24 @@ body.is-loading .hc__eyebrow, body.is-loading .hc__tagline{ opacity:1 !important
 @media (hover:none), (pointer:coarse){
   .row.is-dim .row__thumb, .row.is-hover .row__thumb{ opacity:1; }
 }
+
+.row__status{ display:inline-flex; align-items:center; gap:7px; color:var(--ink); }
+.row__status i{ width:8px; height:8px; border-radius:50%; border:1.5px solid var(--clay); box-sizing:border-box; flex:none; }
+.st-shipped i{ background:var(--clay); }
+.st-research i{ background:linear-gradient(90deg,var(--clay) 50%,transparent 50%); }
+.st-concept i{ background:transparent; }
+.row__meta b{ font-weight:400; opacity:.5; }
+.legend{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin:0 0 18px; font-size:12px; letter-spacing:.03em; color:var(--ink-soft); }
+.legend .row__status{ color:var(--ink); margin-left:0; }
+.legend__sep{ width:18px; height:1px; background:var(--line,#2a2a2a); display:inline-block; }
+.legend__i{ display:inline-flex; align-items:center; gap:8px; }
+.legend{ gap:8px 28px; }
+@media (max-width:860px){ .legend{ flex-direction:column; align-items:flex-start; gap:8px; } }
+
+/* dim the status label with its row on hover */
+.row__status{ transition:color .3s ease; }
+.row.is-dim .row__status{ color:#2E2D2B; }
+.row.is-dim .row__status i{ border-color:#2E2D2B; }
+.row.is-dim .st-shipped i{ background:#2E2D2B; }
+.row.is-dim .st-research i{ background:linear-gradient(90deg,#2E2D2B 50%,transparent 50%); }
+@media (max-width:860px){ .row__meta .row__status{ display:flex; margin-bottom:5px; } .row__meta b{ display:none; } }
