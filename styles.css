@@ -1121,3 +1121,18 @@ html.has-cur, html.has-cur *{ cursor:none !important; }
 body.is-loading .hc__eyebrow, body.is-loading .hc__tagline{ opacity:1 !important; }
 /* Photo is visible immediately: no fade-in */
 .hx__photo, body.is-loading .hx__photo, body:not(.is-loading) .hx__photo, .hero .hx__photo{ opacity:1 !important; transition:transform .3s ease !important; }
+
+
+/* mobile fixes (Nov 2026) */
+/* About story rows: the round-5 override above beat the 860px rule, so the three columns stayed and the text ran off the right edge */
+@media (max-width:860px){
+  .story__row, .story--b .story__row{ grid-template-columns:minmax(0,1fr); gap:10px; padding:30px 0; }
+  .story__row:hover{ padding-left:0; }
+  .story__t{ margin:0; }
+  .story__b{ min-width:0; }
+  .story__b p{ max-width:none; }
+}
+/* touch screens: never leave the project thumbnails dimmed */
+@media (hover:none), (pointer:coarse){
+  .row.is-dim .row__thumb, .row.is-hover .row__thumb{ opacity:1; }
+}

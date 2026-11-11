@@ -128,6 +128,8 @@
 
     rows.forEach(function(row, idx){
       row.addEventListener('mouseenter', function(){
+        // touch screens fire a fake mouseenter on tap and never fire mouseleave: skip them, or the thumbnails stay dimmed
+        if(!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
         hovered = idx;
         // keep the hovered row readable: screenshot sits just below it (above it for the last two rows)
         var sr = workStage.getBoundingClientRect(), rr = row.getBoundingClientRect();
@@ -139,6 +141,11 @@
           r.classList.toggle('is-hover', r === row);
         });
       });
+    });
+
+    // coming back with the browser's back button: clear any leftover hover state
+    window.addEventListener('pageshow', function(){
+      rows.forEach(function(r){ r.classList.remove('is-dim'); r.classList.remove('is-hover'); });
     });
 
     workStage.addEventListener('mouseleave', function(){
